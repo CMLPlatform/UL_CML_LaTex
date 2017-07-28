@@ -26,7 +26,8 @@
 
 %% English is the default language, but this can be changed to Dutch by
 %% specifying the 'dutch' option to the document class.
-
+%% Even for English reports, some sections might be in Dutch, for example on
+%% the title page, so also load dutch as alternative language in this case.
 \ifxetex
     \RequirePackage{polyglossia}
     \if@dutch
@@ -63,9 +64,6 @@
         \RequirePackage[hypertex]{hyperref}
     \fi
 \fi
-
-
-
 \RequirePackage{metalogo}
 \RequirePackage[numbers,sort&compress]{natbib}
 \RequirePackage{tikz}
@@ -76,204 +74,179 @@
 \RequirePackage{xkeyval}
 \RequirePackage[export]{adjustbox}
 
-
-
-
 \ifxetex
+    %% If the document is compiled with XeLaTeX, we load the UL house
+    %% style fonts: Bookman Old Style (serif) for titles and Arial (sans-serif)
+    %% for text. Even if the nativefonts option was specified, we need these
     %% fonts for the cover.
-    \newfontfamily\ultitlefamily[
+    \newfontfamily\CMLtitlefamily[
         Path = fonts/,
         Extension = .otf ]{MinionPro}
-    \newfontfamily\ulrmfamily[
+    \newfontfamily\cmlbodyfamily[
         Path = fonts/,
         Extension = .otf,
         BoldFont = *-Bold,
-        ItalicFont = *-Italic,
+        ItalicFont = *-It,
         BoldItalicFont = *-BoldIt]{MinionPro}
-    \newfontfamily\ulsfFamily[
+    \newfontfamily\cmlotherfamily[
         Path = fonts/,
         Extension = .otf,
         BoldFont = *Bold,
-        ItalicFont = *Italic,
-        BoldItalicFont = *BoldItalic]{Vestula}
+        ItalicFont = *LightItalic,
+        BoldItalicFont = *BlackItalic]{Vestula}
 \else
     \@nativefontstrue
-    \newcommand*\ulrmfamily{\rmfamily}
-    \newcommand*\ulsffamily{\sffamily}
+    \newcommand*\cmlbodyfamily{\bodyfamily}
+    \newcommand*\cmlotherfamily{\otherfamily}
 \fi
 
 
-
 \if@nativefonts
+    %% The native font is Utopia Regular with Fourier math. We use Latin Modern
+    %% as a fallback, since Utopia lacks support for sans-serif and monospace.
     \RequirePackage[T1]{fontenc}
     \RequirePackage[utf8]{inputenc}
+
     \if@roman
+      \RequirePackage[thin]{roboto}
       \RequirePackage{fourier}
-    \else 
+    \else
+      \RequirePackage[thin]{roboto}
       \RequirePackage{helvet}
-      \renewcommand{\sffamily}
+      \renewcommand{\familydefault}{\sfdefault}
     \fi
-    \def\largetitlefont{\rmfamily}
+    \def\largetitlefont{\fontfamily{MinionPro}}
     \def\largetitleseries{\fontseries{t}}
     \def\largetitleshape{\fontshape{n}}
     \def\largetitlestyle{\largetitlefont\largetitleseries\largetitleshape}
     \def\titleshape{\fontshape{n}}
-    \if@roman
-        \renewcommand{\familydefault}{\rmdefault}
-        \def\titlefont{\rmfamily}
-        \def\sectitleshape{\fontshape{n}}
-        \def\sectitlestyle{\rmfamily\titleshape\bfseries}
-        \def\chaptitlestyle{\rmfamily\titleshape}
-    \else
-        \def\titlefont{\rmfamily}
-        \def\sectitlestyle{\sffamily\titleshape\bfseries}
-        \def\chaptitlestyle{\sffamily\titleshape}
     \fi
 
     \def\titlestyle{\titlefont\titleshape}
         \def\headerstyle{\titlefont}
 
-\else
-    %% Courier New for monospace
-    %% and Cambria for math.
-    \RequirePackage{unicode-math}
-    \setmainfont[
-        Path = fonts/,
-        Extension = .otf,
-        BoldFont = *-Bold,
-        ItalicFont = *-Italic,
-        BoldItalicFont = *-BoldItalic ]{MinionPro-Regular}
-    \setsansfont[
-        Path = fonts/,
-        Extension = .otf,
-        BoldFont = *Bold,
-        ItalicFont = *RegularItalic,
-        BoldItalicFont = *BoldItalic]{Vestula}
-    \setmonofont[
-        Path = fonts/,
-        Extension = .otf,
-        BoldFont = *Bold,
-        ItalicFont = *RegularItalic,
-        BoldItalicFont = *BoldItalic]{Vestula}
-    \setmathfont[
-        Path = fonts/,
-        Extension = .ttf ]{CambriaMath}
 
+ 
     %% The default style for text is Tahoma (sans-serif).
 %    \setlength\@largetitlesize{96pt}
-
-    \renewcommand*\familydefault{\sfdefault}
+    \renewcommand*\familydefault{\otherdefault}
     %% The default style for titles is Bookman Old Style (serif). 
-    \def\titlefont{\rmfamily}
+    \def\titlefont{\otherfamily}
     \def\largetitlefont{\titlefamily}
     \def\titleshape{}
     \def\largetitleshape{\titleshape}
     \def\largetitleseries{}
     \def\largetitlestyle{\largetitlefont\largetitleseries\largetitleshape}
-    \def\chaptitlefamily{\rmfamily}
-
+    \def\chaptitlefamily{\otherfamily}
+%    \if@print
+%        \def\titlestyle{\titlefont\titleshape}
+%%        \def\largetitlestyle{\largetitlefont\titleshape\bfseries}
+%        \def\sectitlestyle{\sffamily\titleshape\bfseries}
+%    \else
         \def\titlestyle{\titlefont\titleshape}
-
-        \def\sectitlestyle{\rmfamily\titleshape\bfseries}
+%        \def\largetitlestyle{\largetitlefont\titleshape}
+        \def\sectitlestyle{\family\titleshape\bfseries}
         \def\chaptitlestyle{\chaptitlefamily}
+%    \fi
     \def\headerstyle{\titlestyle}
 \fi
 
 % Use roman (Georgia) in quote environment
 \renewenvironment{quote}
-               {\list{}{\rightmargin\leftmargin}\rmfamily\selectfont%
+               {\list{}{\rightmargin\leftmargin}\otherfamily\selectfont%
                 \item\relax}
                {\endlist}
 
 %% Define the Leiden university CML house style colors.
-\definecolor{LEI-blue}{cmyk}{1,0.75,0,0.35}
+\definecolor{dark-blue}{cmyk}{1,0,0,0.7}
 \definecolor{black}{cmyk}{0,0,0,1}
 \definecolor{white}{cmyk}{0,0,0,0}
-\definecolor{LEI-green}{cmyk}{0.88,0,1,0.24}
-\definecolor{LEI-light-green}{cmyk}{0.35,0,1,0.14}
+\definecolor{green}{cmyk}{0.54,0,0.32,0}
+\definecolor{less-green}{cmyk}{1,0.15,0.4,0}
 
-\def\@pagecolor{white}
+\def\@pagecolor{dark-blue}
+%\if@whitetitle
+%  \def\titlecolor{white}
+%\else   
+%  \def\titlecolor{black}
+%\fi
 
-%% Use Leiden LEI-blue as the color for titles
-\colorlet{title}{LEI-blue}
+%% Use Leiden dark-blue as the color for titles, unless the 'print' option is
+%% specified. % JMT changed this: all titles black!
+% \if@print
+    \colorlet{title}{black}
+%\else
+%    \colorlet{title}{dark-blue}
+%\fi
 
 %% We use A4 paper with slightly smaller margins than the default (scale = 0.7).
 \geometry{a4paper}
 
 %% Redefine the title command to accept an optional subtitle.
 \renewcommand*\title[2][white]{%
+%    \def\@subtitle{#1}%
     \def\@titlecolor{#1}%
     \def\@title{#2}%
     %% Add the title to the PDF meta data.
     \hypersetup{pdftitle=#2}%
 }
-
-\newcommand*\subtitle[2][white]{
-    \def\@subtitlecolor{#1}
-    \def\@subtitle{#2}
-    }
-
+\newcommand*\subtitle[2][white]{%
+%    \def\@subtitle{#1}%
+    \def\@subtitlecolor{#1}%
+    \def\@subtitle{#2}%
+    %% Add the title to the PDF meta data.
+%    \hypersetup{pdftitle=#3}%
+}
 %% Redefine the author command to add the name to the PDF meta data.
 \renewcommand*\author[2][white]{%
     \def\@authorcolor{#1}%
     \def\@author{#2}%
     \hypersetup{pdfauthor=#2}%
 }
-%% The project
-\newcommand*\project[2][black]{\def\@afilcolor{#1}
-    \def\@project{#2}}
-
-%% The cover image command is used to specify the filename of the optional cover
+%% The affiliation is shown in the blue box on the front cover.
+\newcommand*\affiliation[2][white]{\def\@afilcolor{#1}%
+                                           \def\@affiliation{#2}}
+%% The coverimage command is used to specify the filename of the optional cover
 %% image.
 \newcommand*\coverimage[1]{\def\@cover@image{#1}}
 %% The covertext command can be used to specify the text printed on the back
 %% cover. This text is inserted in a minipage environment and can therefore
 %% include line breaks.
 \newcommand\covertext[2][white]{%
+%    \def\@subtitle{#1}%
     \def\@covertextcolor{#1}%
     \def\@cover@text{#2}}
 
 %% The cover image is scaled to fill the width of the front cover.
 \newlength\@cover@imagewidth
-
 %% The width of the spine if a back cover is present.
 \newlength\@cover@spinewidth
 \setlength\@cover@spinewidth{0.375in}
-
 %% Width and height of the boxes on the front and back cover.
 \newlength\@cover@frontboxwidth
-\setlength\@cover@frontboxwidth{6in}
-
+\setlength\@cover@frontboxwidth{7in}
 \newlength\@cover@frontboxheight
-\setlength\@cover@frontboxheight{2.05in}
-
+\setlength\@cover@frontboxheight{2.1875in}
 \newlength\@cover@fronttextwidth
 \newlength\@cover@fronttextheight
-
 \newlength\@cover@splitboxwidth
-\setlength\@cover@splitboxwidth{5in}
-
+\setlength\@cover@splitboxwidth{6.375in}
 \newlength\@cover@splitboxheight
+%\setlength\@cover@splitboxheight{0.25\paperheight}
 \newlength\@cover@splitboxtextwidth
-
 \newlength\@cover@splittextheight
-
 %% Position on the front cover where the corner of both boxes meet.
 \newlength\@cover@x
-\setlength\@cover@x{1.36in}
-
+\setlength\@cover@x{0.8125in}
 \newlength\@cover@y
 \setlength\@cover@y{3in}
-
-
 \newlength\@cover@ax
-\setlength\@cover@ax{7in}
+\setlength\@cover@ax{0.6125in}
 \newlength\@cover@ay
-\setlength\@cover@ay{10.20in}
-
+\setlength\@cover@ay{5in}
 %% The margin around text boxes.
 \newlength\@cover@margin
-\setlength\@cover@margin{10pt}
+\setlength\@cover@margin{12pt}
 
 %% Define the options for the makecover command.
 \define@boolkey{cover}{back}[true]{}
@@ -284,6 +257,8 @@
 \define@key{cover}{spinewidth}{\setlength\@cover@spinewidth{#1}}
 \define@key{cover}{frontboxwidth}{\setlength\@cover@frontboxwidth{#1}}
 \define@key{cover}{frontboxheight}{\setlength\@cover@frontboxheight{#1}}
+%\define@key{cover}{backboxwidth}{\setlength\@cover@backboxwidth{#1}}
+%\define@key{cover}{backboxheight}{\setlength\@cover@backboxheight{#1}}
 \define@key{cover}{x}{\setlength\@cover@x{#1}}
 \define@key{cover}{y}{\setlength\@cover@y{#1}}
 \define@key{cover}{ax}{\setlength\@cover@ax{#1}}
@@ -314,7 +289,6 @@
             \setlength\@cover@imagewidth{\paperwidth}
             \addtolength\@cover@imagewidth{\@cover@spinewidth}
         \else
-            \centering
             \setlength\@cover@imagewidth{\paperwidth}
         \fi
         %% If a cover image was specified, attach it to the top right of the
@@ -333,14 +307,13 @@
                \node[anchor=north west,inner sep=0pt] at (current page.west) {
                \includegraphics[width=\@cover@imagewidth]{\@cover@image}};
             \else
-               \node at (current page.center){
-               \includegraphics[width=0.7\@cover@imagewidth]{\@cover@image}};
+               \node at (current page.north east)[anchor=north east,inner sep=0pt]{
+               \includegraphics[width=\@cover@imagewidth]{\@cover@image}};
             \fi}
           \fi
         \fi
-        \ifKV@cover@whitelogo %right now if not specified it will go directly to white logo FD
-          \ifKV@cover@back 
-        %all this needs to be fixed to have a back cover, for the time being front cover works just fine FD
+        \ifKV@cover@whitelogo
+          \ifKV@cover@back
               \node at (current page.south west)[anchor=south west,inner sep=20pt]{
                   \includegraphics{cover/logo_white}
               };
@@ -354,15 +327,15 @@
           \fi
         \else
           \ifKV@cover@back
-              \node at (current page.south west)[anchor=south west,inner sep=30pt]{ 
-                  \includegraphics{cover/front.jpeg}
+              \node at (current page.south west)[anchor=south west,inner sep=30pt]{
+                  \includegraphics{cover/CML_UL}
               };
               \node at (current page.south east)[anchor=south east,inner sep=30pt]{
-                  \includegraphics{cover/front.jpeg}
+                  \includegraphics{cover/CML_UL}
               };
           \else
-              \node at (current page.south west)[anchor=south west,inner sep=0]{
-                  \includegraphics{cover/front_}
+              \node at (current page.south west)[anchor=south west,inner sep=35pt]{
+                  \includegraphics{cover/CML_UL}
               };
           \fi
         \fi
@@ -390,7 +363,7 @@
             %% covers the cover image.
             \coordinate (spine top left) at ($(spine top left)-(1pt,0pt)$);
             %% Draw a black box on the spine.
-            \fill[fill= LEI-blue](spine top left) rectangle (spine bottom right);
+            \fill[fill= dark-blue](spine top left) rectangle (spine bottom right);
             %% Print the title on the center right of the spine box.
             \node at (spine bottom center)[rotate=-90,anchor=east,inner sep=\@cover@margin]{
                 \sffamily\color{white}\LARGE\@title
@@ -445,10 +418,6 @@
           %% Draw the front box in black.
   %        \fill[fill= black](front top left) rectangle (front bottom right);
           %% Calculate the width and height of the front text box.
-
-
-    %% This is where all the font settings for the front cover are
-
           \setlength\@cover@fronttextwidth{\@cover@frontboxwidth}
           \addtolength\@cover@fronttextwidth{-2\@cover@margin}
           \setlength\@cover@fronttextheight{\@cover@frontboxheight}
@@ -457,21 +426,22 @@
           \node at (front top left)[anchor=north west,inner sep=\@cover@margin]{
               \begin{minipage}[t][\@cover@fronttextheight]{\@cover@fronttextwidth}
                   %% Print the title and optional subtitle at the top in white.
-                  {\largetitlestyle\color{\@titlecolor}\fontsize{41}{49}\selectfont\@title}
+                  {\largetitlestyle\color{\@titlecolor}\fontsize{50}{50}\selectfont\@title}
                   \ifx\@subtitle\undefined\else
-                      \\[8mm]
-                      {\rmfamily\color{\@subtitlecolor}\fontsize{24}{32}\selectfont\@subtitle}
+                      \\[3mm]
+                      {\sffamily\color{\@subtitlecolor}\fontsize{22}{32}\selectfont\@subtitle}
                   \fi
-
+                  %% Print the author at the bottom in cyan.
                   \vfill
-                  {\sffamily\color{\@authorcolor}\fontsize{15}{15}\selectfont\@author}
+                  {\largetitlestyle\color{\@authorcolor}\fontsize{26}{26}\selectfont\@author}
               \end{minipage}
           };
-          \ifx\@project\undefined\else
-              \node at (acorner){
-                  \sffamily\color{\@afilcolor}\fontsize{18}{18}\@project
+          \ifx\@affiliation\undefined\else
+              \node at (acorner)[rotate=90,anchor=south west,inner sep=\@cover@margin]{
+                  \sffamily\color{\@afilcolor}\@affiliation
               };
           \fi
+         
        \fi
     \end{tikzpicture}
     %% Restore the margins and turn the page white again.
@@ -514,10 +484,10 @@
 %% The mainmatter style is default for normal pages.
 \pagestyle{mainmatter}
 
-%% Print the current chapter and section at the top of the page.
+%% Print the current chapter and section at the top of the page in cyan.
 \renewcommand*\chaptermark[1]{\markboth{\thechapter.\ \color{title}#1}{}}
 \renewcommand*\sectionmark[1]{\markright{\thesection.\ \color{title}#1}}
-\newcommand*\setheader[1]{\markboth{\color{title}#1}{\color{LEI-blue}#1}}
+\newcommand*\setheader[1]{\markboth{\color{title}#1}{\color{title}#1}}
 
 %% Change the headrule command (from fancyhdr.sty) to draw the line below the
 %% header in the title color.
@@ -590,7 +560,6 @@
     {}
     {0pt}
     {\color{title}}
-
 %% Subsubsections are preceded by an empty line and do not appear in the table
 %% of contents.
 \titlespacing{\subsubsection}{0pt}{\bigskipamount}{0pt}
@@ -605,7 +574,7 @@
 %% Use a custom bibliography style based on apsrev4-1.
 \bibliographystyle{report}
 
-%% Hyperlinks are LEI-blue, except in print mode, when they are all black.
+%% Hyperlinks are cyan, except in print mode, when they are all black.
 \hypersetup{
     colorlinks=true,
     citecolor=title,
