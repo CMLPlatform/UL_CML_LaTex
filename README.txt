@@ -1,8 +1,9 @@
 Using the template
 ------------------
 
-This is the TU Delft LaTeX template for reports and theses. It is designed to
-work with all versions of LaTeX, but if you want to adhere to the TU Delft house
+This is the Leiden University CML LaTeX template for reports and theses. 
+It is a variation of the TU Delft LaTex template designed to work with all 
+versions of LaTeX, but if you want to adhere to the Leiden University house
 style, you need to use XeLaTeX, as it supports TrueType and OpenType fonts. The
 document can be compiled with
 
@@ -32,7 +33,7 @@ or simply with the 'XeLaTeX' option in TeXworks or an equivalent program.
 Installation on Windows
 -----------------------
 
-The TU Delft LaTeX template has been tested to work with the most recent version
+The Leiden University CML LaTeX template has been tested to work with the most recent version
 of MiKTeX at the time of this writing (2.9). The following packages are required
 on top of a basic MiKTeX installation to make full use of the template:
 
