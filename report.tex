@@ -1,0 +1,53 @@
+\documentclass{cml-report}
+\usepackage{natbib}
+\usepackage{changes}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{longtable}
+\begin{document}
+
+%% Use Roman numerals for the page numbers of the title pages and table of
+%% contents.
+\frontmatter
+
+
+\title[white]{Title}
+\subtitle[black]{Subtitle}
+\author[white]{Name \& surname}
+\affiliation{Leiden University - CML}
+\coverimage{figures/cover.jpeg}
+\covertext[tudelft-white]{
+   \textbf{PhD Research proposal}
+	}
+   
+\setpagecolor{dark-blue}
+
+\makecover
+%% Include an optional title page.
+\input{title}
+
+\input{preface}
+
+
+\tableofcontents
+
+\input{abbreviations}
+%% Use Arabic numerals for the page numbers of the chapters.
+\mainmatter
+
+\input{chapter1}
+\input{chapter2}
+
+%% Use letters for the chapter numbers of the appendices.
+\appendix
+
+%\input{appendix-a}
+
+\bibliography{biblio}
+
+\end{document}
+

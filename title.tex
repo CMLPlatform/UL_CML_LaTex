@@ -1,0 +1,72 @@
+\begin{titlepage}
+
+
+\begin{center}
+
+{\makeatletter
+\largetitlestyle\fontsize{64}{94}\selectfont\@title
+\makeatother}
+
+%% Print the optional subtitle in black.
+{\makeatletter
+\ifx\@subtitle\undefined\else
+    \bigskip
+   {\sffamily\fontsize{22}{32}\selectfont\@subtitle}    
+\fi
+\makeatother}
+
+\bigskip
+\bigskip
+
+by
+%door
+
+\bigskip
+\bigskip
+
+%% Print the name of the author.
+{\makeatletter
+%\largetitlefont\Large\bfseries\@author
+\largetitlestyle\fontsize{26}{26}\selectfont\@author
+\makeatother}
+
+\bigskip
+\bigskip
+
+to obtain the degree of Master of Science in Industrial Ecology
+
+at Leiden University
+
+to be defended publicly on July 27th 2017.
+
+\vfill
+
+\begin{tabular}{lll}
+    LU Student number: & 000000 \\
+    Project duration: & \multicolumn{2}{l}{March 1, 2016 -- April 30, 2017} \\
+    Thesis committee: & Prof. Arnold Tukker, & Leiden University, 1st supervisor 
+\end{tabular}
+%% Only include the following lines if confidentiality is applicable.
+
+\bigskip
+\bigskip
+\emph{This thesis is confidential and cannot be made public until May 17, 2017.}
+
+\bigskip
+\bigskip
+An electronic version of this thesis is available at \url{http://cml-dummy-repository.nl}.
+%\\[1cm]
+
+%\centering{\includegraphics{cover/logo_black}}
+
+
+\end{center}
+
+\begin{tikzpicture}[remember picture, overlay]
+    \node at (current page.south)[anchor=south,inner sep=0pt]{
+        \includegraphics{cover/CML_Black}
+    };
+\end{tikzpicture}
+
+\end{titlepage}
+
