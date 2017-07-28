@@ -3,31 +3,7 @@ Using the template
 
 This is the Leiden University CML LaTeX template for reports and theses. 
 It is a variation of the TU Delft LaTex template designed to work with all 
-versions of LaTeX, but if you want to adhere to the Leiden University house
-style, you need to use XeLaTeX, as it supports TrueType and OpenType fonts. The
-document can be compiled with
-
-  xelatex report
-  bibtex report
-  xelatex report
-  xelatex report
-
-This is equivalent to selecting 'XeLaTeX+BibTeX' or similar in your favorite TeX
-editing program.
-
-A sample document, as well as documentation for template options, can be found
-in example.pdf. An example with the native LaTeX fonts, compiled using the
-'nativefonts' option (or with pdflatex), can be found in
-example-nativefonts.pdf.
-
-A separate example document is available which generates a cover image (front,
-back and spine). This document can be generated with
-
-  xelatex cover
-  xelatex cover
-
-or simply with the 'XeLaTeX' option in TeXworks or an equivalent program.
-
+versions of LaTeX.
 
 
 Installation on Windows
