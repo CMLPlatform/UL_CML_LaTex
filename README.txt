@@ -1,17 +1,20 @@
 Using the template
-------------------
+--------------------------------------------------------------------------
 
 This is the Leiden University CML LaTeX template for reports and theses. 
 It is a variation of the TU Delft LaTex template designed to work with all 
 versions of LaTeX.
 
+N.B.
+The document is still under development and while it complies with many 
+Leiden University guidelines it is not an authorized Leiden University template.
 
 Installation on Windows
 -----------------------
 
-The Leiden University CML LaTeX template has been tested to work with the most recent version
-of MiKTeX at the time of this writing (2.9). The following packages are required
-on top of a basic MiKTeX installation to make full use of the template:
+The Leiden University CML LaTeX template has been tested to work with the most
+recent version of MiKTeX at the time of this writing (2.9). The following packages
+are required on top of a basic MiKTeX installation to make full use of the template:
 
   caption, fancyhdr, filehook, footmisc, fourier, l3kernel, l3packages,
   metalogo, mptopdf, ms, natbib, pgf, realscripts, tipa, titlesec, tocbibind,
