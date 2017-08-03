@@ -355,14 +355,14 @@
         \else
           \ifKV@cover@back
               \node at (current page.south west)[anchor=south west,inner sep=30pt]{ 
-                  \includegraphics{cover/front.jpeg}
+                  \includegraphics{cover/front.pdf}
               };
               \node at (current page.south east)[anchor=south east,inner sep=30pt]{
-                  \includegraphics{cover/front.jpeg}
+                  \includegraphics{cover/front.pdf}
               };
           \else
               \node at (current page.south west)[anchor=south west,inner sep=0]{
-                  \includegraphics{cover/front_}
+                  \includegraphics{cover/front.pdf}
               };
           \fi
         \fi
@@ -460,16 +460,15 @@
                   {\largetitlestyle\color{\@titlecolor}\fontsize{41}{49}\selectfont\@title}
                   \ifx\@subtitle\undefined\else
                       \\[8mm]
-                      {\rmfamily\color{\@subtitlecolor}\fontsize{24}{32}\selectfont\@subtitle}
+                      {\rmfamily\color{\@subtitlecolor}\fontsize{28}{32}\selectfont\@subtitle}
                   \fi
-
-                  \vfill
-                  {\sffamily\color{\@authorcolor}\fontsize{15}{15}\selectfont\@author}
+                      \\[12mm]
+                  {\sffamily\color{\@authorcolor}\fontsize{18}{18}\selectfont\@author}
               \end{minipage}
           };
           \ifx\@project\undefined\else
               \node at (acorner){
-                  \sffamily\color{\@afilcolor}\fontsize{18}{18}\@project
+                  \sffamily\color{\@afilcolor}\fontsize{28}{30}\@project
               };
           \fi
        \fi
@@ -603,7 +602,7 @@
 \renewcommand*\labelitemiv{\color{title}\textperiodcentered}
 
 %% Use a custom bibliography style based on apsrev4-1.
-\bibliographystyle{report}
+\bibliographystyle{cml-report}
 
 %% Hyperlinks are LEI-blue, except in print mode, when they are all black.
 \hypersetup{

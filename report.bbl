@@ -1,0 +1,22 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[201(2013)]{2013US1}
+{US Department of Energy
+  http://energy.gov/eere/articles/photo-gallery-renewable-energy-2013 1}.
+\newblock 2013.
+
+\bibitem[ten Raa and Rueda-Cantuche(2003)]{TenRaa2003}
+Thijs ten Raa and Jos{\'{e}}~Manuel Rueda-Cantuche.
+\newblock {The Construction of Input–Output Coefficients Matrices in an
+  Axiomatic Context: Some Further Considerations}.
+\newblock \emph{Economic Systems Research}, 15\penalty0 (4):\penalty0 439--455,
+  2003.
+\newblock ISSN 0953-5314.
+\newblock \doi{10.1080/0953531032000152317}.
+
+\end{thebibliography}

@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.7.28)  28 JUL 2017 23:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.30)  31 JUL 2017 12:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **report.tex
 (./report.tex
 LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 29 language(s) loaded.
+Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (./cml-report.cls
 Document Class: cml-report 2017/07/27 v1.0 Leiden University CML report
 (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
@@ -112,8 +112,6 @@ Package babel Info: Making " an active character on input line 132.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2012/08/20 v3.3p English support from the babel system
-\l@british = a dialect from \language\l@english 
-\l@UKenglish = a dialect from \language\l@english 
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
@@ -1327,7 +1325,7 @@ LaTeX Font Info:    Redeclaring math accent \mathring on input line 256.
 \@cover@ax=\skip72
 \@cover@ay=\skip73
 \@cover@margin=\skip74
-Package hyperref Info: Option `colorlinks' set `true' on input line 614.
+Package hyperref Info: Option `colorlinks' set `true' on input line 613.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/changes/changes.sty
 Package: changes 2015/04/27 v2.0.4 changes package
@@ -1611,17 +1609,17 @@ LaTeX Info: Redefining \nameref on input line 11.
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
-) <figures/IE.jpg, id=75, 391.4625pt x 263.98625pt>
-File: figures/IE.jpg Graphic file (type jpg)
+) <cover/IEBC.jpeg, id=107, 501.875pt x 250.9375pt>
+File: cover/IEBC.jpeg Graphic file (type jpg)
 
-<use figures/IE.jpg>
-Package pdftex.def Info: figures/IE.jpg used on input line 26.
-(pdftex.def)             Requested size: 418.25368pt x 282.06773pt.
- <cover/front_.pdf, id=76, 597.50786pt x 845.04686pt>
-File: cover/front_.pdf Graphic file (type pdf)
+<use cover/IEBC.jpeg>
+Package pdftex.def Info: cover/IEBC.jpeg used on input line 26.
+(pdftex.def)             Requested size: 418.25368pt x 209.13576pt.
+ <cover/front.pdf, id=108, 597.50786pt x 845.04686pt>
+File: cover/front.pdf Graphic file (type pdf)
 
-<use cover/front_.pdf>
-Package pdftex.def Info: cover/front_.pdf used on input line 26.
+<use cover/front.pdf>
+Package pdftex.def Info: cover/front.pdf used on input line 26.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
 
 
@@ -1633,16 +1631,16 @@ LaTeX Font Info:    Try loading font information for T1+cmss on input line 26.
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 
-LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <15> not available
-(Font)              size <14.4> substituted on input line 26.
+LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <18> not available
+(Font)              size <17.28> substituted on input line 26.
 
 [1
 
 
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/IE.jpg> <./cover
-/front_.pdf>] (./title.tex [2
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./cover/IEBC.jpeg> <./cove
+r/front.pdf>] (./title.tex [2
 
 
 ]
@@ -1679,7 +1677,7 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 57.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-<cover/CML_Black.pdf, id=104, 209.40132pt x 105.40279pt>
+<cover/CML_Black.pdf, id=135, 209.40132pt x 105.40279pt>
 File: cover/CML_Black.pdf Graphic file (type pdf)
 
 <use cover/CML_Black.pdf>
@@ -1690,17 +1688,13 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.71 \end{titlepage}
-                     [1 <./cover/CML_Black.pdf>]) (./preface.texpdfTeX warning 
-(ext4): destination with the same identifier (name{page.ii}) has been already u
-sed, duplicate ignored
+                     [1 <./cover/CML_Black.pdf>])pdfTeX warning (ext4): destina
+tion with the same identifier (name{page.ii}) has been already used, duplicate 
+ignored
 <to be read again> 
                    \relax 
-l.1 \chapter
-            *{Executive summary} [2
-
-] [3] [4
-
-]) [5] [6
+l.34 \tableofcontents
+                      [2
 
 ] (./report.toc
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
@@ -1709,8 +1703,7 @@ LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
 \tf@toc=\write5
 \openout5 = `report.toc'.
 
-
-(./abbreviations.tex [7] [8
+ (./abbreviations.tex [3] [4
 
 ]
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
@@ -1723,7 +1716,8 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 6.25598pt on input line 7.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <8> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 9.
-) [9] [10
+) [5]
+[6
 
 ] (./chapter1.tex
 Chapter 1.
@@ -1742,29 +1736,30 @@ File: ts1futs.fd 2004/03/26 Fontinst v1.926 font definitions for TS1/futs.
 
 ]
 Chapter 2.
-
-Package natbib Warning: Citation `TenRaa2003' on page 3 undefined on input line
- 10.
-
-) (./report.bbl)
-
-Package natbib Warning: There were undefined citations.
-
+[3]) (./report.bbl [4])
 \Changes@OutFile=\write6
 \openout6 = `report.soc'.
 
-[3]
+ [5
+
+]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 50.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 50.
  (./report.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 50.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 50.
-Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 433C54CBDE55A7EA4EE192D5B18F5EE9;1038.
 
+
+Package rerunfilecheck Warning: File `report.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `report.out':
+(rerunfilecheck)             Before: 602E6B73FE1DBF1D630AA508E1651C38;1543
+(rerunfilecheck)             After:  BB2087D12E627867CEEF786B13E23EEB;1543.
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 0.6pt have occurred.
+(Font)              up to 0.72pt have occurred.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1772,23 +1767,26 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 50.
  ) 
 Here is how much of TeX's memory you used:
- 22009 strings out of 494374
- 389482 string characters out of 6164954
- 456350 words of memory out of 5000000
- 24764 multiletter control sequences out of 15000+600000
+ 22031 strings out of 493029
+ 389875 string characters out of 6136234
+ 461960 words of memory out of 5000000
+ 24998 multiletter control sequences out of 15000+600000
  109396 words of font info for 103 fonts, out of 8000000 for 9000
- 350 hyphenation exceptions out of 8191
- 62i,11n,66p,929b,645s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/franco/.te
-xmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/franco/.texmf-var/fo
-nts/pk/ljfour/jknappen/ec/ecss1000.600pk> </home/franco/.texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecss1440.600pk></usr/share/texlive/texmf-dist/fonts/type1/adobe
-/utopia/putb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putr
-8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on report.pdf (15 pages, 308986 bytes).
+ 1141 hyphenation exceptions out of 8191
+ 62i,11n,66p,447b,645s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{appendix*.6} has been referenced but does not exi
+st, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fo
+nts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/typ
+e1/adobe/utopia/putb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/uto
+pia/putr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.
+pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1728.pfb></usr/share/texm
+f/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on report.pdf (13 pages, 384534 bytes).
 PDF statistics:
- 292 PDF objects out of 1000 (max. 8388607)
- 190 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 164 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 289 PDF objects out of 1000 (max. 8388607)
+ 226 compressed objects within 3 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 228 words of extra memory for PDF output out of 10000 (max. 10000000)
 

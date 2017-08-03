@@ -1,6 +1,6 @@
 \select@language {english}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1} Motivation for research (Problem statement)}{1}{section.1.1}
+\contentsline {section}{\numberline {1.1}Motivation for research (Problem statement)}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Research question}{1}{section.1.2}
 \contentsline {subsection}{\numberline {1.2.1}Main}{1}{subsection.1.2.1}
 \contentsline {subsection}{\numberline {1.2.2}Sub-questions}{1}{subsection.1.2.2}
@@ -16,4 +16,12 @@
 \contentsline {subsection}{\numberline {2.1.4}Support}{3}{subsection.2.1.4}
 \contentsline {subsection}{\numberline {2.1.5}Conferences and visits}{3}{subsection.2.1.5}
 \contentsline {subsection}{\numberline {2.1.6}Time schedule}{3}{subsection.2.1.6}
+\contentsline {section}{\numberline {2.2}Second paper}{4}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Subquestion}{4}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Elaboration}{4}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Resources}{4}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Support}{4}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Conferences and visits}{4}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Time schedule}{4}{subsection.2.2.6}
+\contentsline {chapter}{Bibliography}{5}{appendix*.4}
 \contentsfinish 
